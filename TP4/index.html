@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.html">
+        <fieldset class="punto1">
+            <legend class="pun1legend">
+                Punto 1
+            </legend>
+            <p>
+                Programe con HTML y Java Script (JS en adelante) un conversor de mi a km, °F a °C u oz a kg.
+            </p>
+            <label for="nconfield">Ingresa las unidades que quieres convertir: </label>
+            <input type="number" id="nconfield" class="numfieldcovert">
+            <div class="buttondiv">
+                <input id="button-covert" onclick="myFunction_ConvertKm()" type="button" value="Convertir de Mi a Km" >
+                <input id="button-covert" onclick="myFunction_ConvertC()" type="button" value="Convertir de ºF a ºC" >
+                <input id="button-covert" onclick="myFunction_ConvertKg()" type="button" value="Convertir de Oz a Kg" >
+            </div>
+            <div class="numberresult" id="numconvertionresult"></div>
+        </fieldset>
+    </form>
+    <script src="punto1.js"></script>
+    <script src="punto2.js"></script>
+    <fieldset>
+        <legend>
+            Punto 4
+        </legend>
+        <p>
+            Programe en Vanilla JS o jQuery una petición GET a una página PHP segura. El código debe contemplar éxito (estado 200, 201, etc.) y 
+            errores habituales (403, 404, 500, demás).
+        </p>
+        <button onclick="myFunction_conn_get()" id="conn-punto4">Connectar</button>
+        <div id="result-conn"></div>
+    </fieldset>
+    <script src="punto4.js"></script>
+    <fieldset>
+        <legend>
+            Punto 6
+        </legend>
+        <p>
+            Programe en HTML 1 tabla y en JS 1 arreglo de objetos, por ejemplo, personas con nombre y edad. Cuando ocurra el evento DOMContentLoaded,
+            el archivo JS tiene que introducir registros en la tabla HTML a partir de lo que contenga el arreglo.
+        </p>
+        <p>Esta es la tabla Persona:</p>
+        <table id="punto6table">
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+            </tr>
+            <tr>
+                <td>persona1nombre</td>
+                <td>persona1edad</td>
+            </tr>
+            <tr>
+                <td>persona2nombre</td>
+                <td>persona2edad</td>
+            </tr>
+            <tr>
+                <td>persona3nombre</td>
+                <td>persona3edad</td>
+            </tr>
+            <tr>
+                <td>persona4nombre</td>
+                <td>persona4edad</td>
+            </tr>
+            <tr>
+                <td>persona5nombre</td>
+                <td>persona5edad</td>
+            </tr>
+        </table>
+    </fieldset>
+    <script src="punto6.js"></script>
+    <fieldset>
+        <legend>
+            Punto 7
+        </legend>
+        <p>
+            Programe en HTML 1 formulario con validación de campos que por medio de JS, jQuery u otra haga una petición POST al PHP que se encargará
+            de con la información enviada hacer 1 INSERT a base de datos.
+        </p>
+    </fieldset>
+    <form action="index.html">
+        <fieldset>
+            <legend>
+                Punto 8
+            </legend>
+            <p>
+                Programe en HTML 3 input:number, el tercero readonly, y al menos 4 botones de operaciones matemáticas para 2 operandos. 
+                Cada vez que se presione alguno de los botones, JS debe recuperar los operandos de los 2 primeros input, hacer el cálculo 
+                correspondiente y mostrar el resultado en el input readonly. Prevea ingresos vacío y no numérico.
+            </p>
+            <label for="op1">Defina el primer operando:</label>
+            <input type="number" name="num1" id="op1"><br>
+            <label for="op2">Defina el segundo operando:</label>
+            <input type="number" name="num2" id="op2"><br>
+            <input type="number" name="readonly" id="readonly"><br>
+            <div id="readonly-div"></div>
+            <input type="button" id="btn-sumar" value="Sumar" onclick="myFunction_sumar()">
+            <input type="button" id="btn-restar" value="Restar" onclick="myFunction_restar()">
+            <input type="button" id="btn-multiplicar" value="Multiplicar" onclick="myFunction_multiplicar()">
+            <input type="button" id="btn-dividir" value="Dividir" onclick="myFunction_dividir()">
+        </fieldset>
+    </form>
+    <script src="punto8.js"></script>
+</body>
+</html>
