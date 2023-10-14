@@ -15,14 +15,23 @@
             <p>
                 Programe con HTML y Java Script (JS en adelante) un conversor de mi a km, °F a °C u oz a kg.
             </p>
-            <label for="nconfield">Ingresa las unidades que quieres convertir: </label>
-            <input type="number" id="nconfield" class="numfieldcovert">
-            <div class="buttondiv">
-                <input id="button-covert" onclick="myFunction_ConvertKm()" type="button" value="Convertir de Mi a Km" >
-                <input id="button-covert" onclick="myFunction_ConvertC()" type="button" value="Convertir de ºF a ºC" >
-                <input id="button-covert" onclick="myFunction_ConvertKg()" type="button" value="Convertir de Oz a Kg" >
-            </div>
-            <div class="numberresult" id="numconvertionresult"></div>
+            <p>Distancia</p>
+            <label for="millasconfield">Millas: </label>
+            <label for="kmconfield">Kilometros: </label>
+            <input type="number" id="kmconfield" class="numfieldcovert" onchange="myFunction_convert()"> 
+            <hr>
+            <p>Temperatura</p>
+            <label for="fahconfield">Fahrenheit: </label>
+            <input type="number" id="fahconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <label for="celconfield">Celsius: </label>
+            <input type="number" id="celconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <hr>
+            <p>Peso</p>
+            <label for="onconfield">Onza: </label>
+            <input type="number" id="onconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <label for="kgconfield">Kilogramos: </label>
+            <input type="number" id="kgconfield" class="numfieldcovert" onchange="myFunction_convert()"> <br>
+            <input type="number" id="millasconfield" class="numfieldcovert" onchange="myFunction_convert()">
         </fieldset>
     </form>
     <script src="punto1.js"></script>
@@ -79,12 +88,41 @@
     <fieldset>
         <legend>
             Punto 7
-        </legend>
-        <p>
-            Programe en HTML 1 formulario con validación de campos que por medio de JS, jQuery u otra haga una petición POST al PHP que se encargará
-            de con la información enviada hacer 1 INSERT a base de datos.
-        </p>
-    </fieldset>
+            </legend>
+            <p>
+                Programe en HTML 1 formulario con validación de campos que por medio de JS, jQuery u otra haga una petición POST al PHP que se encargará
+                de con la información enviada hacer 1 INSERT a base de datos.
+            </p>
+            <p>Se va hacer un basedatos llamada ejemplo7 y se va ingresar con un INSERT los siguientes valores en la tabla Animal: </p>
+            <form id="punto7form">
+                <label for="name-ani">Ingrese el nombre del animal: </label>
+                <input type="text" name="name-ani" id="name-ani" placeholder="Nombre" maxlength="25" required> <br>
+                <label for="age-ani">Ingrese los años del animal: </label>
+                <input type="number" name="age-ani" id="age-ani" placeholder="Edad" max="9999999999" required> <br>
+                <label for="race-ani">Ingrese la raza del animal: </label>
+                <input type="text" name="race-ani" id="race-ani" placeholder="Raza" maxlength="25" required> <br>
+                <label for="type-ani">Seleccione el tipo de animal:</label>
+                <input 
+                type="text" 
+                name="type-ani"
+                id="type-ani" 
+                list="list-type" 
+                required pattern="[Mm]amifero|[Aa]ve|[Rr]eptil|[Aa]nfibio|[Ii]nsecto" 
+                placeholder="Tipo del animal"
+                >
+                <datalist id="list-type">
+                    <option value="Mamifero">
+                    <option value="Ave">
+                    <option value="Reptil">
+                    <option value="Anfibio">
+                    <option value="Insecto">
+                </datalist>
+                <input type="submit" value="Ingresar" id="POST_button">
+                <!--value="Nombre" value="1" value="Perro" value="Seleccione el tipo del animal"-->
+            </form>
+            <div id="response-sql-query"></div>
+        </fieldset>
+        <script src="punto7.js"></script>
     <form action="index.html">
         <fieldset>
             <legend>
@@ -99,7 +137,7 @@
             <input type="number" name="num1" id="op1"><br>
             <label for="op2">Defina el segundo operando:</label>
             <input type="number" name="num2" id="op2"><br>
-            <input type="number" name="readonly" id="readonly"><br>
+            <input type="number" name="readonly" id="readonly" readonly><br>
             <div id="readonly-div"></div>
             <input type="button" id="btn-sumar" value="Sumar" onclick="myFunction_sumar()">
             <input type="button" id="btn-restar" value="Restar" onclick="myFunction_restar()">
