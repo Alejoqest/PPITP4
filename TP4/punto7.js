@@ -6,19 +6,19 @@ const input_tipo = document.querySelector("#type-ani");
 const form = document.querySelector("#punto7form");
 const submit_buttton = document.querySelector("#POST_button");
 
-input_nombre.addEventListener("submit", check_validity, true);
+input_nombre.addEventListener("invalid", check_validity, true);
 
 input_nombre.addEventListener("input", check_validity, true);
 
-input_edad.addEventListener("submit", check_validity, true);
+input_edad.addEventListener("invalid", check_validity, true);
 
 input_edad.addEventListener("input", check_validity, true);
 
-input_raza.addEventListener("submit", check_validity, true);
+input_raza.addEventListener("invalid", check_validity, true);
 
 input_raza.addEventListener("input", check_validity, true);
 
-input_tipo.addEventListener("submit", check_validity, true);
+input_tipo.addEventListener("invalid", check_validity, true);
 
 input_tipo.addEventListener("input", check_validity, true);
 

@@ -17,21 +17,21 @@
             </p>
             <p>Distancia</p>
             <label for="millasconfield">Millas: </label>
+            <input type="number" id="millasconfield" class="numfieldcovert">
             <label for="kmconfield">Kilometros: </label>
-            <input type="number" id="kmconfield" class="numfieldcovert" onchange="myFunction_convert()"> 
+            <input type="number" id="kmconfield" class="numfieldcovert"> 
             <hr>
             <p>Temperatura</p>
             <label for="fahconfield">Fahrenheit: </label>
-            <input type="number" id="fahconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <input type="number" id="fahconfield" class="numfieldcovert">
             <label for="celconfield">Celsius: </label>
-            <input type="number" id="celconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <input type="number" id="celconfield" class="numfieldcovert">
             <hr>
             <p>Peso</p>
             <label for="onconfield">Onza: </label>
-            <input type="number" id="onconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <input type="number" id="onconfield" class="numfieldcovert">
             <label for="kgconfield">Kilogramos: </label>
-            <input type="number" id="kgconfield" class="numfieldcovert" onchange="myFunction_convert()"> <br>
-            <input type="number" id="millasconfield" class="numfieldcovert" onchange="myFunction_convert()">
+            <input type="number" id="kgconfield" class="numfieldcovert"> <br>
         </fieldset>
     </form>
     <script src="punto1.js"></script>
@@ -44,7 +44,11 @@
             Programe en Vanilla JS o jQuery una petición GET a una página PHP segura. El código debe contemplar éxito (estado 200, 201, etc.) y 
             errores habituales (403, 404, 500, demás).
         </p>
-        <button onclick="myFunction_conn_get()" id="conn-punto4">Connectar</button>
+        <label for="conn-key">Ingrese la llave del servidor:</label>
+        <input type="text" id="conn-key"> <br>
+        <label for="conn-input">Ingrese el contenido que quiere poner en el GET: </label>
+        <input type="text" id="conn-input"> <br>
+        <button id="conn-punto4">Connectar</button>
         <div id="result-conn"></div>
     </fieldset>
     <script src="punto4.js"></script>
@@ -139,10 +143,10 @@
             <input type="number" name="num2" id="op2"><br>
             <input type="number" name="readonly" id="readonly" readonly><br>
             <div id="readonly-div"></div>
-            <input type="button" id="btn-sumar" value="Sumar" onclick="myFunction_sumar()">
-            <input type="button" id="btn-restar" value="Restar" onclick="myFunction_restar()">
-            <input type="button" id="btn-multiplicar" value="Multiplicar" onclick="myFunction_multiplicar()">
-            <input type="button" id="btn-dividir" value="Dividir" onclick="myFunction_dividir()">
+            <input type="button" id="btn-sumar" value="Sumar">
+            <input type="button" id="btn-restar" value="Restar">
+            <input type="button" id="btn-multiplicar" value="Multiplicar">
+            <input type="button" id="btn-dividir" value="Dividir">
         </fieldset>
     </form>
     <script src="punto8.js"></script>

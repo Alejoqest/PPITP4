@@ -1,50 +1,46 @@
 const read_field = document.querySelector("#readonly");
-const read_div = document.querySelector("#readonly-div"); 
+const read_div = document.querySelector("#readonly-div");
 
-function myFunction_obtainnumbers(){ 
-    number1 = document.querySelector("#op1").value;
-    console.log("El primer operando es: "+number1);
-    number2 = document.querySelector("#op2").value;
-    console.log("El segundo operando es: "+number2);
-    return number1, number2;
-}
-function myFunction_sumar() {
-    myFunction_obtainnumbers();
-    if (number1 == null || number2 == null || number1 == '' || number2 == '' || typeof number1 === 'undefined' || typeof number2 === 'undefined'){
+const campo1 = document.querySelector("#op1");
+const campo2 = document.querySelector("#op2");
+
+const b_suma = document.querySelector("#btn-sumar");
+const b_resta = document.querySelector("#btn-restar");
+const b_multiplica = document.querySelector("#btn-multiplicar");
+const b_divide = document.querySelector("#btn-dividir");
+
+b_suma.addEventListener("click", operation);
+b_resta.addEventListener("click", operation);
+b_multiplica.addEventListener("click", operation);
+b_divide.addEventListener("click", operation);
+
+function operation(e) {
+    let val1 = Number(campo1.value);
+    let val2 = Number(campo2.value);
+    let resultado;
+    if (val1 != "" || val2 != "" || val1 != undefined || val2 != undefined || val1 != NaN || val2 != NaN) {
+        switch (e.target) {
+            case b_suma:
+                resultado = val1+val2;
+            break;
+            case b_resta:
+                resultado = val1-val2;
+            break;
+            case b_multiplica:
+                resultado = val1*val2;
+            break;
+            case b_divide:
+                if (val2 != 0) {
+                    resultado = val1/val2;
+                } else {
+                    read_div.innerHTML = "No se pudo realizar la división porque el segundo valor es 0."
+                    return false;
+                }
+            break;
+        }
+        read_field.value = resultado;
+        read_div.innerHTML = "";
+    } else {
         read_div.innerHTML = "Algunos de los dos numeros ingresados esta mal definido.";
-    } else {
-        const suma = Number(number1)+Number(number2);
-        read_field.value = suma;
-        read_div.innerHTML= "";
-    }
-}
-function myFunction_restar() {
-    myFunction_obtainnumbers();
-    if (number1 == null || number2 == null || number1 == '' || number2 == '' || typeof number1 === 'undefined' || typeof number2 === 'undefined'){
-        read_div.innerHTML= "Algunos de los dos numeros ingresados esta mal definido.";
-    } else {
-        const resta = Number(number1)+Number(number2);
-        read_field.value = resta;
-        read_div.innerHTML= "";
-    }
-}
-function myFunction_multiplicar() {
-    myFunction_obtainnumbers();
-    if (number1 == null || number2 == null || number1 == '' || number2 == '' || typeof number1 === 'undefined' || typeof number2 === 'undefined'){
-        read_div.innerHTML= "Algunos de los dos numeros ingresados esta mal definido.";
-    } else {
-        const multiplicar = Number(number1)*Number(number2);
-        read_field.value = multiplicar;
-        read_div.innerHTML= "";
-    }
-}
-function myFunction_dividir() {
-    myFunction_obtainnumbers();
-    if (number1 == null || number2 == null || number1 == '' || number2 == '' || typeof number1 === 'undefined' || typeof number2 === 'undefined'){
-        read_div.innerHTML= "Algunos de los dos numeros ingresados esta mal definido.";
-    } else {
-        const dividir = Number(number1)*Number(number2);
-        read_field.value = dividir;
-        read_div.innerHTML= "";
     }
 }

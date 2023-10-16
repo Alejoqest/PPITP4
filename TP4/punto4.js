@@ -1,30 +1,53 @@
 const xhr = new XMLHttpRequest();
+
+const i_conn = document.querySelector("#conn-input");
+const k_conn = document.querySelector("#conn-key");
+const b_conn = document.querySelector("#conn-punto4");
+const div_conn = document.querySelector("#result-conn");
+
+b_conn.addEventListener("click", myFunction_conn_get);
+
 function myFunction_conn_get(){    
+    let v_conn = i_conn.value;
+    let p_conn = k_conn.value;
     xhr.onload = function () {
         if (this.readyState == 4 && (this.status == 200 || this.status == 201)) {
             console.log("Terminado.");
             console.log(this.readyState+" "+this.status);
-            document.querySelector("#result-conn").innerHTML = 
+            div_conn.innerHTML = 
             "<h1> Conexion " + this.status + "</h1>" +
             "</<p>" + this.responseText + "</p>";
         } else {
-            document.querySelector("#result-conn").innerHTML = 
-            "<h1> ERROR "+this.status+"</h1>";
+            div_conn.innerHTML = 
+            "<h1>"+this.status+" "+this.statusText+"</h1>";
             switch (this.status) {
+                case 400:
+                    div_conn.innerHTML += 
+                    "<p> Lo enviado no cumple las reglas. <br> </p>"
+                    break;
+                case 403:
+                    div_conn.innerHTML += 
+                    "<p> No tienes permiso para hacer esta acción.<br> </p>"
                 case 404:
-                    document.querySelector("#result-conn").innerHTML += 
-                    "<p> La pagina que se busca no existe. <br>" + this.statusText + "<p>"
+                    div_conn.innerHTML += 
+                    "<p> La pagina que se busca no existe. <br></p>"
                     break;
                 case 500:
-                    document.querySelector("#result-conn").innerHTML +=
-                    this.statusText;
+                    document.querySelector("#result-conn").innerHTML += 
+                    "<p> No se puede procesar lo enviando.<br></p>";
                     break;
             }
             console.log("Error.");
         }
     }
-    xhr.open("GET", "punto4.php?a=1");
-    xhr.send();
-    console.log("iniciado...")
+    if (p_conn == "" || v_conn == "") {
+        xhr.open("GET", "punto4.php?b=404");
+        xhr.send();
+        console.log("iniciado...")
+    } else {
+        xhr.open("GET", "punto4.php?a="+v_conn+"&b="+p_conn);
+        xhr.send();
+        console.log("iniciado...")
+    }
 }
     
