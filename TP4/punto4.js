@@ -13,7 +13,6 @@ function myFunction_conn_get(){
     xhr.onload = function () {
         if (this.readyState == 4 && (this.status == 200 || this.status == 201)) {
             console.log("Terminado.");
-            console.log(this.readyState+" "+this.status);
             div_conn.innerHTML = 
             "<h1> Conexion " + this.status + "</h1>" +
             "</<p>" + this.responseText + "</p>";
@@ -45,6 +44,8 @@ function myFunction_conn_get(){
         xhr.send();
         console.log("iniciado...")
     } else {
+        p_conn = p_conn.toUpperCase();
+        console.log(p_conn);
         xhr.open("GET", "punto4.php?a="+v_conn+"&b="+p_conn);
         xhr.send();
         console.log("iniciado...")

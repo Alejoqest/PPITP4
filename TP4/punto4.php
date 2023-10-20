@@ -2,13 +2,10 @@
 $q = $_GET ["a"];
 $s = $_GET["b"];
 
-if (strcasecmp($s, "POST"))
-strtoupper($s);
-
 $space= "";
 
 switch ($s) {
-    case "Punto4":
+    case "PUNTO4":
         if (strlen($q)<10) {
             $space = "Conectado a php normalmente.";
             http_response_code(200);
@@ -18,7 +15,7 @@ switch ($s) {
     break;
     case "POST":
         if (strlen($q)<10) {
-            if (preg_match('<|>', $q)) {
+            if (preg_match('[<|>]', $q)) {
                 http_response_code(500);
             } else {
                 $space = "Conectado a php. Se ingreso ".$q.".";
